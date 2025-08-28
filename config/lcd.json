@@ -1,0 +1,37 @@
+{
+    "image_path": "./images/lcd.gif",
+    "trail_color": true,
+    "hand_control": true,
+    "time": [
+        {
+            "split_positions": [
+                [38, 23],
+                null,
+                [38, 31]
+            ],
+            "font_file": "./fonts/6x8.otb",
+            "inverted": true,
+            "font_height": 8,
+            "font_width": 6
+        }
+    ],
+    "temp_int": [
+        {
+            "position": [0, 1],
+            "font_file": "./fonts/6x8.otb",
+            "inverted": true,
+            "font_height": 8,
+            "font_width": 6
+        }
+    ],
+    "temp_ext": [
+        {
+            "position": [31, 1],
+            "font_file": "./fonts/6x8.otb",
+            "inverted": true,
+            "font_height": 8,
+            "font_width": 6
+        }
+    ]
+}
+
