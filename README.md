@@ -20,7 +20,7 @@ Panels are driven with RS485 serial protocol. For small setup, one RS485 main co
 
 ### Display frame structure
 
-The frame to send to the pannel controller to display information is:
+The frame to send to the panel controller to display information is:
 
 0x80; start of the frame
 
@@ -34,17 +34,25 @@ data: One byte is a stripe of dots (so 7 dots). Least Significant Bit (LSB) is t
 
 ### Panel display structure
 
-I ended up with two lines of eight controllers to manage.
+I ended up with two RS485 lines, each with eight controllers to manage.
 
-[1][9]
-[2][10]
-[3][11]
-[4][12]
-[5][13]
-[6][14]
-[7][15]
-[8][16]
+A visual representation of what it is.
 
+```bash
+[Ctrl1]Ctrl2]
+[1]    [9]
+[2]    [10]
+[3]    [11]
+[4]    [12]
+[5]    [13]
+[6]    [14]
+[7]    [15]
+[8]    [16]
+```
+
+And all of that is making a 56x56 dots matrix.
+
+Then it's just a matter of matricial operations to display things on the panels by splitting what you want to display over the eight panels / sixteen controllers.
 
 ## The hardware
 
