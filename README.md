@@ -22,7 +22,7 @@ Panels are driven with RS485 serial protocol. For small setup, one RS485 main co
 
 The frame to send to the panel controller to display information is:
 
-0x80; start of the frame
+0x80: start of the frame
 
 0x83: command (there are several commands but this one instruct to display on the panel and refresh it fully)
 
@@ -53,6 +53,24 @@ A visual representation of what it is.
 And all of that is making a 56x56 dots matrix.
 
 Then it's just a matter of matricial operations to display things on the panels by splitting what you want to display over the eight panels / sixteen controllers.
+
+### Hand gesture recognition
+
+Displaying things on the panel is fun but displaying things "live" or be able to interact with the panel is even funnier.
+
+I am using a Jetson Nano. This is a small computer board that come with a small Nvidia GPU. The power of the GPU is sufficient to offload video detection for my use case.
+
+I am using OpenCV to preprocess the images frames captured by the camera, then I use Google Mediapipe to handle hand detection. If "Open_Palm" is detected (which means to full hand open) for more than one second than hand detection mechanism is triggered. In my case it allows to move the image displayed on the panel.
+
+Recognition Flow.
+
+1. Frame Capture → Camera input (640x480)
+2. Preprocessing → Flip, resize to 320x240, BGR→RGB conversion
+3. MediaPipe Processing → Hand detection → landmark extraction → gesture classification
+4. Confidence Check → Filter by detection/presence/tracking/gesture confidence
+5. Temporal Smoothing → Consensus voting across frame window
+6. State Change Detection → Compare with previous state
+7. Message Broadcasting → ZMQ publish if state changed
 
 ## The hardware
 
