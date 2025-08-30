@@ -12,15 +12,15 @@ I thought it was a cool idea to replicate and a very cool DIY project. So I star
 
 Not many companies are making flipdots panels nowadays. One of the leader is AlfaZeta in Poland.
 
-They are providing panels in different size. I pick the 28x14 dots model (which is in fact two base 28x7 panels put together).
+They are providing panels in different size. I picked the 28x14 dots model (which is in fact two base 28x7 panels assembled together on a single board).
 
-So one panel is a 28x14 dots matrix basically. It means two controllers per pannel.
+So one panel is a 28x14 dots matrix. And each pannel has two controllers per pannel.
 
 Panels are driven with RS485 serial protocol. For small setup, one RS485 main controller interface can drive up to eight controllers. Which in my case means four panels per main controller interfaces.
 
-### Frame structure
+### Display frame structure
 
-The frame to display information is:
+The frame to send to the pannel controller to display information is:
 
 0x80; start of the frame
 
