@@ -26,7 +26,7 @@ The frame to send to the panel controller to display information is:
 
 0x83: command (there are several commands but this one instruct to display on the panel and refresh it fully)
 
-addres of the panel: each panel has and must have its own address (you setup the panel address with dip switches on it)
+address of the panel: each panel has and must have its own address (you setup the panel address with dip switches on it)
 
 data: One byte is a stripe of dots (so 7 dots). Least Significant Bit (LSB) is the upper dot. Most Significant Bit (the 7th) is the lower dot. (MSB 8th is ignored and should be put to zero)
 
@@ -38,7 +38,7 @@ I ended up with two RS485 lines, each with eight controllers to manage.
 
 A visual representation of what it is.
 
-```bash
+```text
 [Ctrl1]Ctrl2]
 [1]    [9]
 [2]    [10]
